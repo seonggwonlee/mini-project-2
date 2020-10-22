@@ -8,6 +8,7 @@ import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
 import mini.project.server.pms.handler.HelpCommand;
 import mini.project.server.pms.handler.LoginCommand;
+import mini.project.server.pms.handler.LogoutCommand;
 import mini.project.server.pms.handler.TestResultCommand;
 import mini.project.server.pms.handler.TestStartCommand;
 import mini.project.server.pms.handler.TypeAddCommand;
@@ -34,6 +35,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
     //    context.put("/board/delete", new BoardDeleteCommand(boardList));
     context.put("/login", new LoginCommand(login));
+    context.put("/logout", new LogoutCommand(login));
     //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
