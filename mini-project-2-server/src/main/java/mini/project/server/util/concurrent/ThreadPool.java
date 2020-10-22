@@ -1,4 +1,4 @@
-package com.eomcs.util.concurrent;
+package mini.project.server.util.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class ThreadPool {
     }
 
     @Override
-      public void run() {
+    public void run() {
 
       synchronized(this) {
 
@@ -29,23 +29,23 @@ public class ThreadPool {
           try {
             System.out.printf("[%s] - 스레드 대기 중\n", this.getName());
 
-              this.wait();
+            this.wait();
 
-              if(ThreadPool.this.stopping) {
-                break;
-              }
+            if(ThreadPool.this.stopping) {
+              break;
+            }
 
             System.out.printf("[%s] - 스레드 작업 시작\n", this.getName());
           } catch (Exception e) {
             System.out.printf("[%s] - 스레드 실행 중 예외 발생\n", this.getName());
-              break;
+            break;
           }
           try {
-              task.run();
-              System.out.printf("[%s] - 스레드 작업 종료\n", this.getName());
-        } catch(Exception e) {
-              System.out.printf("[%s] - %s\n", this.getName(), e.getMessage());
-          break;
+            task.run();
+            System.out.printf("[%s] - 스레드 작업 종료\n", this.getName());
+          } catch(Exception e) {
+            System.out.printf("[%s] - %s\n", this.getName(), e.getMessage());
+            break;
           } finally {
             worker.add(this);
             System.out.printf("[%s] - 스레드풀로 되돌아 감\n", this.getName());
