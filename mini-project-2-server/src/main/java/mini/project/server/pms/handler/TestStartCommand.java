@@ -3,6 +3,7 @@ package mini.project.server.pms.handler;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
+import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
 import mini.project.server.util.Prompt;
@@ -11,18 +12,19 @@ public class TestStartCommand implements Command {
 
   List<Test> testList;
   List<Type> typeList;
+  Login login;
 
-  public TestStartCommand (List<Test> list, List<Type> typeList) {
+  public TestStartCommand (List<Test> list, List<Type> typeList, Login login) {
     this.testList = list;
     this.typeList = typeList;
-
+    this.login = login;
   }
-//  int[] answers = new int[5];
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
       Test test = new Test();
+      test.setName(login.getName());
 
       out.println("[테스트 시작] 아무 키나 눌러주세요.");
       Prompt.inputString(" ", out, in);
@@ -78,44 +80,48 @@ public class TestStartCommand implements Command {
       //      test.totalScore = test.getFirstAnswer() + test.getSecondAnswer() + test.getThirdAnswer() +
       //          test.getFourthAnswer() + test.getFifthAnswer();
 
+      out.printf("%s님의 검사결과입니다.\n", login.getName());
+
       if (test.getTotalScore() == 5) {
         Type type = findByNo(1);
-        out.println(type.getName());
-        out.println(type.getIntroduction());
-        out.println(type.getStrength());
-        out.println(type.getWeakness());
+        out.printf("유형 : %s\n",type.getName());
+        out.printf("설명 : %s\n",type.getIntroduction());
+        out.printf("장점 : %s\n",type.getStrength());
+        out.printf("약점 : %s\n",type.getWeakness());
       } else if (5 < test.getTotalScore() && test.getTotalScore() < 10) {
         Type type = findByNo(2);
-        out.println(type.getName());
-        out.println(type.getIntroduction());
-        out.println(type.getStrength());
-        out.println(type.getWeakness());
+        out.printf("유형 : %s\n",type.getName());
+        out.printf("설명 : %s\n",type.getIntroduction());
+        out.printf("장점 : %s\n",type.getStrength());
+        out.printf("약점 : %s\n",type.getWeakness());
       } else if (10 <= test.getTotalScore() && test.getTotalScore() < 15) {
         Type type = findByNo(3);
-        out.println(type.getName());
-        out.println(type.getIntroduction());
-        out.println(type.getStrength());
-        out.println(type.getWeakness());
+        out.printf("유형 : %s\n",type.getName());
+        out.printf("설명 : %s\n",type.getIntroduction());
+        out.printf("장점 : %s\n",type.getStrength());
+        out.printf("약점 : %s\n",type.getWeakness());
       } else if (15 <= test.getTotalScore() && test.getTotalScore() < 20) {
         Type type = findByNo(4);
-        out.println(type.getName());
-        out.println(type.getIntroduction());
-        out.println(type.getStrength());
-        out.println(type.getWeakness());
+        out.printf("유형 : %s\n",type.getName());
+        out.printf("설명 : %s\n",type.getIntroduction());
+        out.printf("장점 : %s\n",type.getStrength());
+        out.printf("약점 : %s\n",type.getWeakness());
       } else if (20 <= test.getTotalScore() && test.getTotalScore() <= 25) {
         Type type = findByNo(5);
-        out.println(type.getName());
-        out.println(type.getIntroduction());
-        out.println(type.getStrength());
-        out.println(type.getWeakness());
+        out.printf("유형 : %s\n",type.getName());
+        out.printf("설명 : %s\n",type.getIntroduction());
+        out.printf("장점 : %s\n",type.getStrength());
+        out.printf("약점 : %s\n",type.getWeakness());
       } else {
       }
-      out.println("테스트 결과를 저장하였습니다.");
+      out.printf("%s님의 테스트 결과를 저장하였습니다.\n", login.getName());
+      testList.add(test);
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
+
   private Type findByNo(int no) {
     for (int i = 0; i < typeList.size(); i++) {
       Type type = typeList.get(i);

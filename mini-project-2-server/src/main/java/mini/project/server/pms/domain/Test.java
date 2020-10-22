@@ -2,6 +2,7 @@ package mini.project.server.pms.domain;
 
 public class Test {
 
+  private String name;
   private int firstAnswer;
   private int secondAnswer;
   private int thirdAnswer;
@@ -46,5 +47,11 @@ public class Test {
   public void setTotalScore (int firstAnswer, int SecondAnswer,
       int ThirdAnswer, int FourthAnswer, int FifthAnswer) {
     this.totalScore = firstAnswer + SecondAnswer + ThirdAnswer + FourthAnswer + FifthAnswer;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
   }
 }
