@@ -36,7 +36,7 @@ public class LoginCommand implements Command {
         out.flush();
       } else {
         login.setName(Prompt.inputString("성함을 입력해주세요 : ", out, in));
-        out.printf("%s님 안녕하세요. B-BTI 검사를 시작합니다.", login.getName());
+        out.printf("%s님 안녕하세요. '/test/start'로 B-BTI검사를 시작하세요.", login.getName());
         out.println();
         out.flush();
       }

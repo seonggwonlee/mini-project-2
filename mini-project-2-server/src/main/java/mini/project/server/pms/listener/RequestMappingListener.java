@@ -7,6 +7,7 @@ import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
 import mini.project.server.pms.handler.LoginCommand;
+import mini.project.server.pms.handler.TestResultCommand;
 import mini.project.server.pms.handler.TestStartCommand;
 import mini.project.server.pms.handler.TypeAddCommand;
 import mini.project.server.pms.handler.TypeDeleteCommand;
@@ -26,7 +27,8 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<Test> testList = (List<Test>) context.get("testList");
     //    List<Task> taskList = (List<Task>) context.get("taskList");
 
-    context.put("/test/start", new TestStartCommand(testList,typeList));
+    context.put("/test/start", new TestStartCommand(testList,typeList,login));
+    context.put("/test/result", new TestResultCommand(testList,typeList,login));
     //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));

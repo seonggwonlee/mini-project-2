@@ -46,7 +46,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     //    발행자(App 객체)가 사용할 수 있도록 맵 객체에 담아서 공유한다.
     context.put("login", login);
     context.put("typeList", typeList);
-    context.put("tetsList", testList);
+    context.put("testList", testList);
     //    context.put("taskList", taskList);
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
