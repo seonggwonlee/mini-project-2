@@ -12,6 +12,10 @@ public class ClientApp {
   static int port;
 
   public static void main(String[] args) {
+    System.out.println(" __       __  ___   \r\n" +
+        "|__)  __ |__)  |  | \r\n" +
+        "|__)     |__)  |  | \r\n");
+    System.out.println("/help를 입력하여 가이드페이지를 참조하세요.");
     if (args.length != 2) {
       System.out.println("프로그램 사용법:");
       System.out.println("  java -cp ... ClientApp 서버주소 포트번호");
@@ -20,10 +24,7 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
-    System.out.println(" __       __  ___   \r\n" +
-        "|__)  __ |__)  |  | \r\n" +
-        "|__)     |__)  |  | \r\n");
-    System.out.println("/help를 입력하여 가이드페이지를 참조하세요.");
+
     while (true) {
       String input = Prompt.inputString("명령 > ");
       if (input.equalsIgnoreCase("quit"))
