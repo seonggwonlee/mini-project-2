@@ -31,13 +31,13 @@ public class TypeUpdateCommand implements Command {
       String introduction = Prompt.inputString(
           String.format("소개(%s)? ", type.getIntroduction()), out, in);
       String strength = Prompt.inputString(
-          String.format("장점(%s)? ", type.getWeakness(), out, in));
+          String.format("장점(%s)? ", type.getStrength()), out, in);
       String weakness = Prompt.inputString(
-          String.format("약점(%s)? ", type.getWeakness(), out, in));
+          String.format("약점(%s)? ", type.getWeakness()), out, in);
       String romance = Prompt.inputString(
-          String.format("연애(%s)? ", type.getRomance(), out, in));
+          String.format("연애(%s)? ", type.getRomance()), out, in);
       String friendship = Prompt.inputString(
-          String.format("우정(%s)? ", type.getFriendship(), out, in));
+          String.format("우정(%s)? ", type.getFriendship()), out, in);
 
       String response = Prompt.inputString("정말 변경하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package mini.project.server.pms;
 
 import java.io.BufferedReader;
@@ -16,26 +15,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.handler.Command;
-=======
-package mini.project.server.pms;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import mini.project.server.context.ApplicationContextListener;
-import mini.project.server.pms.handler.Command;
->>>>>>> branch 'master' of https://github.com/cgkim449/mini-project-2.git
 import mini.project.server.pms.listener.AppInitListener;
+import mini.project.server.pms.listener.DataHandlerListener;
+import mini.project.server.pms.listener.RequestMappingListener;
 
 public class ServerApp {
 
@@ -113,6 +95,8 @@ public class ServerApp {
     ServerApp server = new ServerApp();
 
     server.addApplicationContextListener(new AppInitListener());
+    server.addApplicationContextListener(new DataHandlerListener());
+    server.addApplicationContextListener(new RequestMappingListener());
 
     server.service(8888);
   }

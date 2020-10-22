@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-package mini.project.server.pms.util;
-
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.sql.Date;
-=======
 package mini.project.server.util;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.sql.Date;
->>>>>>> branch 'master' of https://github.com/cgkim449/mini-project-2.git
 import java.util.Scanner;
 
 public class Prompt {
