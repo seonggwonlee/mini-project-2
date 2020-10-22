@@ -13,7 +13,7 @@ public class ClientApp {
 
   public static void main(String[] args) {
     if (args.length != 2) {
-      System.out.println("프로그램 사용법:");
+      System.out.println("프로그램 사용법 :");
       System.out.println("  java -cp ... ClientApp 서버주소 포트번호");
       System.exit(0);
     }
