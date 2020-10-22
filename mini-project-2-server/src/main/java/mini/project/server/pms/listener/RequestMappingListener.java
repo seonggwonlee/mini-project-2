@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
+import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
 import mini.project.server.pms.handler.LoginStart;
 import mini.project.server.pms.handler.TestStartCommand;
@@ -22,10 +23,10 @@ public class RequestMappingListener implements ApplicationContextListener {
     // 옵저버가 작업한 결과를 맵에서 꺼낸다.
     List<Login> LoginList = (List<Login>) context.get("LoginList");
     List<Type> typeList = (List<Type>) context.get("typeList");
-    //    List<Project> projectList = (List<Project>) context.get("projectList");
+    List<Test> testList = (List<Test>) context.get("testList");
     //    List<Task> taskList = (List<Task>) context.get("taskList");
 
-    context.put("/test/start", new TestStartCommand());
+    context.put("/test/start", new TestStartCommand(testList,typeList));
     //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
