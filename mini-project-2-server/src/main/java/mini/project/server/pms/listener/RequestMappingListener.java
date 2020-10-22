@@ -3,7 +3,6 @@ package mini.project.server.pms.listener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Project;
 import com.eomcs.pms.handler.BoardDeleteCommand;
 import com.eomcs.pms.handler.BoardDetailCommand;
@@ -28,6 +27,7 @@ import com.eomcs.pms.handler.TaskListCommand;
 import com.eomcs.pms.handler.TaskUpdateCommand;
 import jdk.internal.jline.internal.ShutdownHooks.Task;
 import mini.project.server.context.ApplicationContextListener;
+import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.handler.Command;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
@@ -37,7 +37,7 @@ public class RequestMappingListener implements ApplicationContextListener {
   @Override
   public void contextInitialized(Map<String,Object> context) {
     // 옵저버가 작업한 결과를 맵에서 꺼낸다.
-    List<Board> boardList = (List<Board>) context.get("boardList");
+    List<Login> LoginList = (List<Login>) context.get("List");
     List<Personalities1> memberList = (List<Personalities1>) context.get("memberList");
     List<Project> projectList = (List<Project>) context.get("projectList");
     List<Task> taskList = (List<Task>) context.get("taskList");
