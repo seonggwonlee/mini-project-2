@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
+<<<<<<< HEAD
 import mini.project.server.pms.domain.Type;
 import mini.project.server.pms.handler.LoginHandler;
 import mini.project.server.pms.handler.TestStartCommand;
@@ -12,6 +13,9 @@ import mini.project.server.pms.handler.TypeDeleteCommand;
 import mini.project.server.pms.handler.TypeDetailCommand;
 import mini.project.server.pms.handler.TypeListCommand;
 import mini.project.server.pms.handler.TypeUpdateCommand;
+=======
+import mini.project.server.pms.handler.LoginStart;
+>>>>>>> branch 'master' of https://github.com/cgkim449/mini-project-2.git
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -25,12 +29,20 @@ public class RequestMappingListener implements ApplicationContextListener {
     //    List<Project> projectList = (List<Project>) context.get("projectList");
     //    List<Task> taskList = (List<Task>) context.get("taskList");
 
+<<<<<<< HEAD
     context.put("/login/start", new LoginHandler(LoginList));
     context.put("/test/start", new TestStartCommand());
     //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
     //    context.put("/board/delete", new BoardDeleteCommand(boardList));
+=======
+    context.put("/login/start", new LoginStart(LoginList));
+//    context.put("/board/list", new BoardListCommand(boardList));
+//    context.put("/board/detail", new BoardDetailCommand(boardList));
+//    context.put("/board/update", new BoardUpdateCommand(boardList));
+//    context.put("/board/delete", new BoardDeleteCommand(boardList));
+>>>>>>> branch 'master' of https://github.com/cgkim449/mini-project-2.git
 
     TypeListCommand typeListCommand = new TypeListCommand(typeList);
     context.put("/type/add", new TypeAddCommand(typeList));

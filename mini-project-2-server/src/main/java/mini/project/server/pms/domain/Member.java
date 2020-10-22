@@ -1,6 +1,6 @@
 package mini.project.server.pms.domain;
 
-public class Login {
+public class Member {
   private String name;
 
   public String getName() {

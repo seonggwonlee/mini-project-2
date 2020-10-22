@@ -6,14 +6,13 @@ import java.util.List;
 import mini.project.server.pms.domain.Login;
 import mini.project.server.util.Prompt;
 
-public class LoginHandler implements Command {
+public class LoginStart implements Command {
 
   List<Login> LoginList;
 
-  public LoginHandler (List<Login> list) {
+  public LoginStart (List<Login> list) {
     this.LoginList = list;
   }
-
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
@@ -24,7 +23,7 @@ public class LoginHandler implements Command {
 
       LoginList.add(login);
 
-      out.println("성격유형 시작");
+      out.printf("%s님 안녕하세요. 성격 검사를 시작합니다.", login.getName());
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
