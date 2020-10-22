@@ -17,7 +17,7 @@ public class LoginHandler implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("B-BTI 성격 유형");
+      out.println("B-BTI 성격 유형 ");
 
       Login login = new Login();
       login.setName(Prompt.inputString("성함을 입력해주세요 : ", out, in));
