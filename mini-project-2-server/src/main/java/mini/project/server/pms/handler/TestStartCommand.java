@@ -46,6 +46,30 @@ public class TestStartCommand implements Command {
       test.setFifthAnswer((Prompt.inputInt(
           "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
 
+      out.println(Prompt.inputString("2페이지로 넘어갑니다. (계속하려면 Y버튼을 눌러주세요)", out, in));
+
+      out.println("1. 다른 사람들에게 자신을 소개하는 것을 어려워 합니다.");
+      test.setFirstAnswer((Prompt.inputInt(
+          "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
+
+      out.println("종종 주변을 무시하거나 잊어버리는 생각에 빠지곤 합니다.");
+      test.setSecondAnswer((Prompt.inputInt(
+          "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
+
+      out.println("이메일에 가능한 빨리 회신하려고 하고 지저분한 편지함을 참을 수 없습니다.");
+      test.setThirdAnswer((Prompt.inputInt(
+          "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
+
+      out.println("중암갑을 받을 때에도 쉽게 침착하게 집중력을 유지할 수 있습니다.");
+      test.setFourthAnswer((Prompt.inputInt(
+          "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
+
+      out.println("보통 대화를 먼저 시작하지 않습니다.");
+      test.setFifthAnswer((Prompt.inputInt(
+          "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
+
+
+
       test.setCount(test.getFirstAnswer(), test.getSecondAnswer(), test.getThirdAnswer(),
           test.getFourthAnswer(), test.getFifthAnswer());
 
