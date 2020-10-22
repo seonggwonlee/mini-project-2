@@ -1,6 +1,6 @@
 package mini.project.server.pms.domain;
 
-public class FirstList {
+public class Personalities {
   private String title;
   private int firstList;
   private int secondList;

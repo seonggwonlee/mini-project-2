@@ -3,14 +3,14 @@ package mini.project.server.pms.handler;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
-import mini.project.server.pms.domain.FirstList;
+import mini.project.server.pms.domain.Personalities;
 import mini.project.server.util.Prompt;
 
 public class FirstListHandler implements Command {
 
-  List<FirstList> firstList;
+  List<Personalities> firstList;
 
-  public FirstListHandler (List<FirstList> list) {
+  public FirstListHandler (List<Personalities> list) {
     this.firstList = list;
   }
 
@@ -24,7 +24,7 @@ public class FirstListHandler implements Command {
       out.println("3) 중간");
       out.println("4) 그렇지 않다");
       out.println("5) 매우 그렇지 않다");
-      FirstList fList = new FirstList();
+      Personalities fList = new Personalities();
       fList.setFirstList(Prompt.inputInt("숫자를 입력해주세요 : ", out, in));
 
       firstList.add(fList);

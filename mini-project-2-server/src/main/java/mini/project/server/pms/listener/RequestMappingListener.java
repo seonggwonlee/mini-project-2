@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
-import mini.project.server.pms.handler.LoginHandler;
+import mini.project.server.pms.handler.LoginStart;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -18,7 +18,7 @@ public class RequestMappingListener implements ApplicationContextListener {
 //    List<Project> projectList = (List<Project>) context.get("projectList");
 //    List<Task> taskList = (List<Task>) context.get("taskList");
 
-    context.put("/login/start", new LoginHandler(LoginList));
+    context.put("/login/start", new LoginStart(LoginList));
 //    context.put("/board/list", new BoardListCommand(boardList));
 //    context.put("/board/detail", new BoardDetailCommand(boardList));
 //    context.put("/board/update", new BoardUpdateCommand(boardList));

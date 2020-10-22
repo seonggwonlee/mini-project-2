@@ -42,7 +42,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
     // 발행자(App 객체)가 사용할 수 있도록 맵 객체에 담아서 공유한다.
-//    context.put("boardList", boardList);
+      context.put("LoginList", LoginList);
 //    context.put("memberList", memberList);
 //    context.put("projectList", projectList);
 //    context.put("taskList", taskList);
@@ -52,7 +52,7 @@ public class DataHandlerListener implements ApplicationContextListener {
   public void contextDestroyed(Map<String,Object> context) {
     // 애플리케이션 서비스가 종료되면 컬렉션에 보관된 객체를 파일에 저장한다.
     // 데이터를 파일에 저장
-//    saveData(boardList, boardFile);
+    saveData(LoginList, loginFile);
 //    saveData(memberList, memberFile);
 //    saveData(projectList, projectFile);
 //    saveData(taskList, taskFile);
