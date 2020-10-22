@@ -7,12 +7,13 @@
  */
 
 plugins {
-    id 'eclipse'
     // Apply the java plugin to add support for Java
     id 'java'
 
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
+
+    id 'eclipse'
 }
 
 repositories {
@@ -22,14 +23,17 @@ repositories {
 }
 
 dependencies {
+    // JSON 라이브러리
+    implementation 'com.google.code.gson:gson:2.8.6'
+
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'com.google.guava:guava:28.1-jre'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.12'
 }
 
 application {
     // Define the main class for the application.
-    mainClassName = 'mini.project.server.App'
+    mainClassName = 'com.eomcs.pms.App'
 }
