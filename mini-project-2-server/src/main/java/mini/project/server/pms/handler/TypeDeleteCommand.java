@@ -3,19 +3,34 @@ package mini.project.server.pms.handler;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
+import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Type;
 import mini.project.server.util.Prompt;
 
 public class TypeDeleteCommand implements Command {
 
   List<Type> typeList;
+  Login login;
 
-  public TypeDeleteCommand(List<Type> list) {
+  public TypeDeleteCommand(List<Type> list, Login login) {
     this.typeList = list;
+    this.login = login;
   }
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    if (login.getAdmin() != 0) {
+      out.print("권한이 없습니다.");
+      out.println();
+      out.flush();
+      return;
+    }
+    if (login.getAdmin() != 0) {
+      out.print("권한이 없습니다.");
+      out.println();
+      out.flush();
+      return;
+    }
     try {
       out.println("[타입 삭제]");
       int no = Prompt.inputInt("번호? ", out, in);

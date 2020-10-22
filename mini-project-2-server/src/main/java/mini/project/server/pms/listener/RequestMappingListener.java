@@ -5,7 +5,7 @@ import java.util.Map;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Type;
-import mini.project.server.pms.handler.LoginStart;
+import mini.project.server.pms.handler.LoginCommand;
 import mini.project.server.pms.handler.TestStartCommand;
 import mini.project.server.pms.handler.TypeAddCommand;
 import mini.project.server.pms.handler.TypeDeleteCommand;
@@ -20,7 +20,7 @@ public class RequestMappingListener implements ApplicationContextListener {
   @Override
   public void contextInitialized(Map<String,Object> context) {
     // 옵저버가 작업한 결과를 맵에서 꺼낸다.
-    List<Login> LoginList = (List<Login>) context.get("LoginList");
+    Login login = (Login) context.get("login");
     List<Type> typeList = (List<Type>) context.get("typeList");
     //    List<Project> projectList = (List<Project>) context.get("projectList");
     //    List<Task> taskList = (List<Task>) context.get("taskList");
@@ -30,18 +30,18 @@ public class RequestMappingListener implements ApplicationContextListener {
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
     //    context.put("/board/delete", new BoardDeleteCommand(boardList));
-    context.put("/login/start", new LoginStart(LoginList));
+    context.put("/login", new LoginCommand(login));
     //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
     //    context.put("/board/delete", new BoardDeleteCommand(boardList));
 
-    TypeListCommand typeListCommand = new TypeListCommand(typeList);
-    context.put("/type/add", new TypeAddCommand(typeList));
+    TypeListCommand typeListCommand = new TypeListCommand(typeList, login);
+    context.put("/type/add", new TypeAddCommand(typeList,login));
     context.put("/type/list", typeListCommand);
-    context.put("/type/detail", new TypeDetailCommand(typeList));
-    context.put("/type/update", new TypeUpdateCommand(typeList));
-    context.put("/type/delete", new TypeDeleteCommand(typeList));
+    context.put("/type/detail", new TypeDetailCommand(typeList, login));
+    context.put("/type/update", new TypeUpdateCommand(typeList, login));
+    context.put("/type/delete", new TypeDeleteCommand(typeList, login));
     //
     //    context.put("/project/add", new ProjectAddCommand(projectList, memberListCommand));
     //    context.put("/project/list", new ProjectListCommand(projectList));

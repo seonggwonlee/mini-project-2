@@ -43,7 +43,6 @@ public class ClientApp {
     try (Socket socket = new Socket(host, port);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-
       out.println(message);
       out.flush();
 
