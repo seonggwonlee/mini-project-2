@@ -6,6 +6,7 @@ import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
+import mini.project.server.pms.handler.HelpCommand;
 import mini.project.server.pms.handler.LoginCommand;
 import mini.project.server.pms.handler.TestStartCommand;
 import mini.project.server.pms.handler.TypeAddCommand;
@@ -27,7 +28,6 @@ public class RequestMappingListener implements ApplicationContextListener {
     //    List<Task> taskList = (List<Task>) context.get("taskList");
 
     context.put("/test/start", new TestStartCommand(testList,typeList));
-    //    context.put("/board/list", new BoardListCommand(boardList));
     //    context.put("/board/detail", new BoardDetailCommand(boardList));
     //    context.put("/board/update", new BoardUpdateCommand(boardList));
     //    context.put("/board/delete", new BoardDeleteCommand(boardList));
@@ -59,6 +59,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     //    context.put("/hello", new HelloCommand());
     //
     //    context.put("/calc", new CalculatorCommand());
+    context.put("/help", new HelpCommand());
   }
 
   @Override
