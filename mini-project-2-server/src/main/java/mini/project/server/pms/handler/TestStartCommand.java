@@ -15,9 +15,7 @@ public class TestStartCommand implements Command {
   public TestStartCommand (List<Test> list, List<Type> typeList) {
     this.testList = list;
     this.typeList = typeList;
-
   }
-//  int[] answers = new int[5];
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
@@ -46,49 +44,52 @@ public class TestStartCommand implements Command {
       test.setFifthAnswer((Prompt.inputInt(
           "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
 
-      test.setCount(test.getFirstAnswer(), test.getSecondAnswer(), test.getThirdAnswer(),
-          test.getFourthAnswer(), test.getFifthAnswer());
-
-      out.println(test.getCount());
-
-
-      //      testList.add(test);
       out.println("[테스트 결과]");
-//      for (int i = 0; answers[i] < 5; i++) {
-        if (test.getCount() == 5) {
-        } else if (5 < test.getCount() && test.getCount() < 10) {
-//          Type type = findByNo(1);
-//          out.println(type.getName());
-//          out.println(type.getIntroduction());
-          out.println("ESTJ");
-        } else if (10 < test.getCount() && test.getCount() < 15) {
-          out.println("ESTJ");
-        } else if (15 < test.getCount() && test.getCount() < 20) {
-          out.println("ISTJ");
-        } else if (20 < test.getCount() && test.getCount() <= 25) {
-          out.println("INFP");
-        } else {
-        }
-//        switch(answers[i]) {
-//          case 1 :
-//            break;
-//          case 2 :
-//            break;
-//          case 3 :
-//            break;
-//          case 4 :
-//            break;
-//          case 5 :
-//            break;
-//        }
-//      }
-        testList.add(test);
-        out.println("테스트 결과를 저장하였습니다.");
+
+      test.setTotalScore(test.getFirstAnswer(), test.getSecondAnswer(), test.getThirdAnswer(),
+          test.getFourthAnswer(), test.getFifthAnswer());
+      //      test.totalScore = test.getFirstAnswer() + test.getSecondAnswer() + test.getThirdAnswer() +
+      //          test.getFourthAnswer() + test.getFifthAnswer();
+
+      if (test.getTotalScore() == 5) {
+        Type type = findByNo(1);
+        out.println(type.getName());
+        out.println(type.getIntroduction());
+        out.println(type.getStrength());
+        out.println(type.getWeakness());
+      } else if (5 < test.getTotalScore() && test.getTotalScore() < 10) {
+        Type type = findByNo(2);
+        out.println(type.getName());
+        out.println(type.getIntroduction());
+        out.println(type.getStrength());
+        out.println(type.getWeakness());
+      } else if (10 <= test.getTotalScore() && test.getTotalScore() < 15) {
+        Type type = findByNo(3);
+        out.println(type.getName());
+        out.println(type.getIntroduction());
+        out.println(type.getStrength());
+        out.println(type.getWeakness());
+      } else if (15 <= test.getTotalScore() && test.getTotalScore() < 20) {
+        Type type = findByNo(4);
+        out.println(type.getName());
+        out.println(type.getIntroduction());
+        out.println(type.getStrength());
+        out.println(type.getWeakness());
+      } else if (20 <= test.getTotalScore() && test.getTotalScore() <= 25) {
+        Type type = findByNo(5);
+        out.println(type.getName());
+        out.println(type.getIntroduction());
+        out.println(type.getStrength());
+        out.println(type.getWeakness());
+      } else {
+      }
+      out.println("테스트 결과를 저장하였습니다.");
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
+
   private Type findByNo(int no) {
     for (int i = 0; i < typeList.size(); i++) {
       Type type = typeList.get(i);
