@@ -24,6 +24,8 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
+
+
     while (true) {
       String input = Prompt.inputString("명령 > ");
       if (input.equalsIgnoreCase("quit"))
