@@ -92,13 +92,11 @@ public class ServerApp {
   }
 
   public static void main(String[] args) {
-
     ServerApp server = new ServerApp();
 
     server.addApplicationContextListener(new AppInitListener());
     server.addApplicationContextListener(new DataHandlerListener());
     server.addApplicationContextListener(new RequestMappingListener());
-
 
     server.service(8888);
   }

@@ -17,11 +17,12 @@ public class TypeAddCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[회원 등록]");
+      out.println("[타입 등록]");
 
       Type type = new Type();
       type.setNo(Prompt.inputInt("번호? ", out, in));
       type.setName(Prompt.inputString("이름? ", out, in));
+      type.setIntroduction(Prompt.inputString("소개? ", out, in));
       type.setRomance(Prompt.inputString("연애? ", out, in));
       type.setFriendship(Prompt.inputString("우정? ", out, in));
       type.setStrength(Prompt.inputString("장점? ", out, in));
