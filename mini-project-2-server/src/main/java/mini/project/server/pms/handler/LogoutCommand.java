@@ -17,6 +17,7 @@ public class LogoutCommand implements Command {
   public void execute(PrintWriter out, BufferedReader in) {
     try {
       String request = Prompt.inputString("로그아웃하시겠습니까? (y/N) : ", out, in);
+      out.println(" ");
 
       if (request.equalsIgnoreCase("y")) {
         login.setAdmin(0);
