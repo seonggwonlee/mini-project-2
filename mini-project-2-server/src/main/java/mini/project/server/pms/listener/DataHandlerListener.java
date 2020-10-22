@@ -14,6 +14,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import mini.project.server.context.ApplicationContextListener;
 import mini.project.server.pms.domain.Login;
+import mini.project.server.pms.domain.Test;
 import mini.project.server.pms.domain.Type;
 
 // 게시물, 회원, 프로젝트, 작업 데이터를 파일에서 로딩하고 파일로 저장하는 일을 한다.
@@ -25,8 +26,8 @@ public class DataHandlerListener implements ApplicationContextListener {
   List<Type> typeList = new LinkedList<>();
   File typeFile = new File("./type.json"); // 회원을 저장할 파일 정보
   //
-  //  List<Project> projectList = new LinkedList<>();
-  //  File projectFile = new File("./project.json"); // 프로젝트를 저장할 파일 정보
+  List<Test> testList = new LinkedList<>();
+  File testFile = new File("./test.json"); // 프로젝트를 저장할 파일 정보
   //
   //  List<Task> taskList = new ArrayList<>();
   //  File taskFile = new File("./task.json"); // 작업을 저장할 파일 정보
@@ -37,7 +38,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     //    파일에서 데이터 로딩
     //    loadData(loginList, loginFile, Login[].class);
     loadData(typeList, typeFile, Type[].class);
-    //    loadData(projectList, projectFile, Project[].class);
+    loadData(testList, testFile, Test[].class);
     //    loadData(taskList, taskFile, Task[].class);
 
     //    옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
@@ -45,7 +46,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     //    발행자(App 객체)가 사용할 수 있도록 맵 객체에 담아서 공유한다.
     context.put("login", login);
     context.put("typeList", typeList);
-    //    context.put("projectList", projectList);
+    context.put("tetsList", testList);
     //    context.put("taskList", taskList);
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
@@ -61,7 +62,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     // 데이터를 파일에 저장
     //    saveData(loginList, loginFile);
     saveData(typeList, typeFile);
-    //        saveData(projectList, projectFile);
+    saveData(testList, testFile);
     //        saveData(taskList, taskFile);
     //    saveData(memberList, memberFile);
     //    saveData(projectList, projectFile);
