@@ -8,7 +8,6 @@ import mini.project.server.util.Prompt;
 public class LoginCommand implements Command {
 
   Login login;
-
   public LoginCommand (Login login) {
     this.login = login;
   }
@@ -17,15 +16,37 @@ public class LoginCommand implements Command {
   public void execute(PrintWriter out, BufferedReader in) {
     try {
       out.println("[로그인] ");
+      if (login.getAdmin() < 2 && login.getAdmin() >= 0) {
+        out.println("이미 로그인 되어있습니다.");
+        out.println();
+        out.flush();
+        return;
+      }
       login.setAdminPw(1111);
-      login.setAdmin(Prompt.inputInt("관리자(0) or 일반회원(1) : ", out, in));
+      while (true) {
+        int num = Prompt.inputInt("관리자(0) or 일반회원(1) : ", out, in);
+        if (num > 1 || num < 0) {
+          out.println("다시 입력해주세요.");
+          out.println(" ");
+          continue;
+        } else {
+          login.setAdmin(num);
+          break;
+        }
+      }
 
       if (login.getAdmin() == 0) {
         while(true) {
           if (login.getAdminPw() != Prompt.inputInt("비밀번호 : ", out, in)) {
-            out.println("비밀번호가 틀렸습니다!");
-            out.println(" ");
-            out.flush();
+            String response = Prompt.inputString(
+                "비밀번호가 틀렸습니다. 계속하시겠습니까?(y/N):", out, in);
+            if (response.equalsIgnoreCase("y")) {
+              continue;
+            } else {
+              out.println("로그인을 취소합니다.");
+              out.println(" ");
+              return;
+            }
           } else {
             break;
           }
