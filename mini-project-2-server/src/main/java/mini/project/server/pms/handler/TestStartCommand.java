@@ -31,7 +31,7 @@ public class TestStartCommand implements Command {
       out.print("아무 키나 눌러주세요.");
       Prompt.inputString(" ", out, in);
 
-      int delay = 500;
+      int delay = 0;
       out.println("1. 다른 사람들에게 자신을 소개하는 것을 어려워 합니다.");
       test.setFirstAnswer((Prompt.inputInt(
           "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
@@ -61,7 +61,7 @@ public class TestStartCommand implements Command {
       Thread.currentThread().sleep(delay);
       out.println(" ");
 
-      out.println("2페이지로 넘어갑니다. (계속 하시려면 아무 키나 눌러주세요.)");
+      out.print("2페이지로 넘어갑니다. (계속 하시려면 아무 키나 눌러주세요.)");
       Prompt.inputString(" ", out, in);
 
       out.println("6. 자신이 다른 사람들보다 뛰어나다고 생각합니다.");
@@ -147,8 +147,6 @@ public class TestStartCommand implements Command {
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
-        out.printf("연애 : %s\n",type.getRomance());
-        out.printf("우정 : %s\n",type.getFriendship());
         out.printf("연애 : %s\n",type.getRomance());
         out.printf("우정 : %s\n",type.getFriendship());
       } else if (20 <= test.getTotalScore() && test.getTotalScore() <= 25) {
