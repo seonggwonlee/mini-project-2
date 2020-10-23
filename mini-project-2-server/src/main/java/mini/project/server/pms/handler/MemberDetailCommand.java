@@ -3,19 +3,28 @@ package mini.project.server.pms.handler;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
+import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Member;
 import mini.project.server.util.Prompt;
 
 public class MemberDetailCommand implements Command {
 
   List<Member> memberList;
+  Login login;
 
-  public MemberDetailCommand(List<Member> list) {
+  public MemberDetailCommand(List<Member> list, Login login) {
     this.memberList = list;
+    this.login =login;
   }
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    if (login.getAdmin() != 0) {
+      out.print("권한이 없습니다.");
+      out.println();
+      out.flush();
+      return;
+    }
     try {
       out.println("[회원 상세보기]");
       int no = Prompt.inputInt("번호? ", out, in);

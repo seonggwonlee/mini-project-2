@@ -4,18 +4,27 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+import mini.project.server.pms.domain.Login;
 import mini.project.server.pms.domain.Member;
 
 public class MemberListCommand implements Command {
 
   List<Member> memberList;
+  Login login;
 
-  public MemberListCommand(List<Member> list) {
+  public MemberListCommand(List<Member> list, Login login) {
+    this.login = login;
     this.memberList = list;
   }
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    if (login.getAdmin() != 0) {
+      out.print("권한이 없습니다.");
+      out.println();
+      out.flush();
+      return;
+    }
     out.println("[회원 목록]");
 
     // 전체 목록을 조회할 때 `Iterator` 객체를 사용한다.
