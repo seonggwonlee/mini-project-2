@@ -2,75 +2,115 @@ package mini.project.server.pms.handler;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.List;
 import mini.project.server.pms.domain.Login;
+import mini.project.server.pms.domain.Member;
 import mini.project.server.util.Prompt;
 
 public class LoginCommand implements Command {
 
   Login login;
-  public LoginCommand (Login login) {
+  List<Member> memberList;
+
+  public LoginCommand (Login login, List<Member> memberList) {
     this.login = login;
+    this.memberList = memberList;
   }
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[로그인] ");
-      if (login.getAdmin() < 2 && login.getAdmin() >= 0) {
-        out.println("이미 로그인 되어있습니다.");
-        out.println();
-        out.flush();
-        return;
-      }
-      login.setAdminPw(1111);
+
+      Member member;
+
+      //      out.println("[로그인] ");
+      //      if (login.getAdmin() < 2 && login.getAdmin() >= 0) {
+      //        out.println("이미 로그인 되어있습니다.");
+      //        out.println();
+      //        out.flush();
+      //        return;
+      //      }
+
+      //      login.setAdminPw(1111);
+
       while (true) {
-        login.setAdmin(Prompt.inputInt("관리자(0) or 일반회원(1) : ", out, in));
-        if (login.getAdmin() > 1 || login.getAdmin() < 0) {
-          out.println("다시 입력해주세요.");
-          out.println(" ");
-          continue;
+        String name = Prompt.inputString("아이디를 입력해주세요 : ", out, in);
+        if (findByName(name) == null) {
+          String response = Prompt.inputString(
+              "없는 아이디입니다. 계속하시겠습니까?(y/N):", out, in);
+          if (response.equalsIgnoreCase("y")) {
+            continue;
+          } else {
+            out.println("로그인을 취소합니다.");
+            out.println(" ");
+            out.flush();
+            return;
+          }
         } else {
+          member = findByName(name);
           break;
         }
       }
 
 
-      if (login.getAdmin() == 0) {
-        while(true) {
-          if (login.getAdminPw() != Prompt.inputInt("비밀번호 : ", out, in)) {
-            String response = Prompt.inputString(
-                "비밀번호가 틀렸습니다. 계속하시겠습니까?(y/N):", out, in);
-            if (response.equalsIgnoreCase("y")) {
-              continue;
-            } else {
-              out.println("로그인을 취소합니다.");
-              out.println(" ");
-              out.flush();
-              login.setAdmin(3);
-              return;
-            }
+      //      if (member.getAdmin() == 0) {
+      while(true) {
+        if (member.getPassword() != Prompt.inputInt("비밀번호 : ", out, in)) {
+          String response = Prompt.inputString(
+              "비밀번호가 틀렸습니다. 계속하시겠습니까?(y/N):", out, in);
+          if (response.equalsIgnoreCase("y")) {
+            continue;
           } else {
-            break;
+            out.println("로그인을 취소합니다.");
+            out.println(" ");
+            out.flush();
+            return;
           }
+        } else {
+          break;
         }
-        out.println(" ");
-        login.setName("bitcamp");
-        out.printf("%s님 안녕하세요.\n", login.getName());
-        out.println(" ");
-        out.println();
-        out.flush();
-      } else {
-        login.setName(Prompt.inputString("성함을 입력해주세요 : ", out, in));
-        out.println(" ");
-        out.printf("%s님 안녕하세요. '/test/start'로 B-BTI검사를 시작하세요.\n", login.getName());
-        out.println(" ");
-        out.println();
-        out.flush();
       }
+      out.println(" ");
+      //        login.setName("bitcamp");
+      if (member.getName().equalsIgnoreCase("bitcamp")) {
+        out.println("관리자님 안녕하세요.");
+        out.println(" ");
+        out.println();
+        out.flush();
+        login.setName(member.getName());
+        login.setAdmin(0);
+
+      } else {
+        out.printf("%s님 안녕하세요. '/test/start'로 B-BTI검사를 시작하세요.\n", member.getName());
+        out.println(" ");
+        out.println();
+        out.flush();
+        login.setName(member.getName());
+        login.setAdmin(1);
+
+      }
+      //      } else {
+      //        login.setName(Prompt.inputString("성함을 입력해주세요 : ", out, in));
+      //        out.println(" ");
+      //        out.printf("%s님 안녕하세요. '/test/start'로 B-BTI검사를 시작하세요.\n", member.getName());
+      //        out.println(" ");
+      //        out.println();
+      //        out.flush();
+      //      }
 
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
+  }
+
+  public Member findByName(String name) {
+    for (int i = 0; i < memberList.size(); i++) {
+      Member member = memberList.get(i);
+      if (member.getName().equals(name)) {
+        return member;
+      }
+    }
+    return null;
   }
 }
