@@ -35,7 +35,7 @@ public class TypeDetailCommand implements Command {
         return;
       }
 
-      out.printf("이름: %s\n", type.getName());
+      out.printf("유형: %s\n", type.getName());
       out.printf("소개: %s\n", type.getIntroduction());
       out.printf("장점: %s\n", type.getStrength());
       out.printf("약점: %s\n", type.getWeakness());
