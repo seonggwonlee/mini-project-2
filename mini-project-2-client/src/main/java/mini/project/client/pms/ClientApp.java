@@ -14,8 +14,9 @@ public class ClientApp {
   public static void main(String[] args) {
     System.out.println(" __       __  ___   \r\n" +
                        "|__)  __ |__)  |  | \r\n" +
-                       "|__)     |__)  |  | \r\n");
-    System.out.println("/help를 입력하여 가이드페이지를 참조하세요.");
+                       "|__)     |__)  |  | 에 오신 것을 환영합니다.\r\n");
+    System.out.println("테스트 진행 : /login");
+    System.out.println("가이드 페이지 : /help");
     if (args.length != 2) {
       System.out.println("프로그램 사용법:");
       System.out.println("  java -cp ... ClientApp 서버주소 포트번호");
