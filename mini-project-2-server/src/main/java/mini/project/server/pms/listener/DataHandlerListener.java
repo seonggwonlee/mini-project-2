@@ -29,7 +29,6 @@ public class DataHandlerListener implements ApplicationContextListener {
   List<Test> testList = new LinkedList<>();
   File testFile = new File("./test.json"); // 프로젝트를 저장할 파일 정보
   //
-  //  List<Task> taskList = new ArrayList<>();
   //  File taskFile = new File("./task.json"); // 작업을 저장할 파일 정보
 
   @Override
