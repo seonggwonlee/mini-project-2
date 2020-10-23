@@ -49,30 +49,40 @@ public class TestResultCommand implements Command {
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
+        out.printf("연애 : %s\n",type.getRomance());
+        out.printf("우정 : %s\n",type.getFriendship());
       } else if (5 < test.getTotalScore() && test.getTotalScore() < 10) {
         Type type = findByNo(2);
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
+        out.printf("연애 : %s\n",type.getRomance());
+        out.printf("우정 : %s\n",type.getFriendship());
       } else if (10 <= test.getTotalScore() && test.getTotalScore() < 15) {
         Type type = findByNo(3);
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
+        out.printf("연애 : %s\n",type.getRomance());
+        out.printf("우정 : %s\n",type.getFriendship());
       } else if (15 <= test.getTotalScore() && test.getTotalScore() < 20) {
         Type type = findByNo(4);
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
+        out.printf("연애 : %s\n",type.getRomance());
+        out.printf("우정 : %s\n",type.getFriendship());
       } else if (20 <= test.getTotalScore() && test.getTotalScore() <= 25) {
         Type type = findByNo(5);
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
+        out.printf("연애 : %s\n",type.getRomance());
+        out.printf("우정 : %s\n",type.getFriendship());
       } else {
       }
 
