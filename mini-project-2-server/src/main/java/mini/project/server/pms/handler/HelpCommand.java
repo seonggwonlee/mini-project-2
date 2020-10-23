@@ -21,7 +21,8 @@ public class HelpCommand implements Command {
     out.println("[관리자 가이드] ");
     out.println("/test/result => 전체 회원의 테스트 결과 조회하기");
     out.println("/type/add => 성격유형 추가하기");
-    out.println("/type/detail => 등록된 성격유형 상세정보 조회");
+    out.println("/type/list => 등록된 성격유형 간략조회");
+    out.println("/type/detail => 등록된 성격유형 상세조회");
     out.println("/type/update => 등록된 성격유형 수정하기");
     out.println("/type/delete => 등록된 성격유형 삭제하기");
     out.println(" ");

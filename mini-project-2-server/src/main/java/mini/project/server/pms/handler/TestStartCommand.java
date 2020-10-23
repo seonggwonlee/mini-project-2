@@ -31,7 +31,7 @@ public class TestStartCommand implements Command {
       out.print("아무 키나 눌러주세요.");
       Prompt.inputString(" ", out, in);
 
-      int delay = 0;
+      int delay = 500;
       out.println("1. 다른 사람들에게 자신을 소개하는 것을 어려워 합니다.");
       test.setFirstAnswer((Prompt.inputInt(
           "매우 그렇다(1), 그렇다(2), 보통이다(3), 아니다(4), 매우 아니다(5)", out, in)));
