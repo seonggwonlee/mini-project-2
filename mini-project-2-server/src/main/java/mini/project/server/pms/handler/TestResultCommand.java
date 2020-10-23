@@ -31,8 +31,26 @@ public class TestResultCommand implements Command {
         out.flush();
         if (login.getAdmin() != 0 && !name.equalsIgnoreCase(login.getName())) {
           out.println(" ");
-          out.println("권한이 없습니다.");
+          String response = Prompt.inputString(
+              "권한이 없습니다. 계속하시겠습니까?(y/N):", out, in);
+          if (response.equalsIgnoreCase("y")) {
+            continue;
+          } else {
+            out.println("결과 조회를 취소합니다.");
+            out.println(" ");
+            return;
+          }
+        } else if (findByName(name) == null){
           out.println(" ");
+          String response = Prompt.inputString(
+              "저장된 결과가 없습니다. 계속하시겠습니까?(y/N):", out, in);
+          if (response.equalsIgnoreCase("y")) {
+            continue;
+          } else {
+            out.println("결과 조회를 취소합니다.");
+            out.println(" ");
+            return;
+          }
         } else {
           test = findByName(name);
           break;
