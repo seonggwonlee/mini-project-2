@@ -154,7 +154,6 @@ public class TestStartCommand implements Command {
                   "IIIII NN   NN   TTT    JJJJJ  ");
         out.println(" ");
         out.printf("유형 : %s\n",type.getName());
-        out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
