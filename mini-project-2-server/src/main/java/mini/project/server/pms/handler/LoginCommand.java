@@ -24,16 +24,16 @@ public class LoginCommand implements Command {
       }
       login.setAdminPw(1111);
       while (true) {
-        int num = Prompt.inputInt("관리자(0) or 일반회원(1) : ", out, in);
-        if (num > 1 || num < 0) {
+        login.setAdmin(Prompt.inputInt("관리자(0) or 일반회원(1) : ", out, in));
+        if (login.getAdmin() > 1 || login.getAdmin() < 0) {
           out.println("다시 입력해주세요.");
           out.println(" ");
           continue;
         } else {
-          login.setAdmin(num);
           break;
         }
       }
+
 
       if (login.getAdmin() == 0) {
         while(true) {
@@ -45,6 +45,8 @@ public class LoginCommand implements Command {
             } else {
               out.println("로그인을 취소합니다.");
               out.println(" ");
+              out.flush();
+              login.setAdmin(3);
               return;
             }
           } else {
