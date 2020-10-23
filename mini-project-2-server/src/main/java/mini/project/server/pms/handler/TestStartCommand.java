@@ -134,10 +134,17 @@ public class TestStartCommand implements Command {
       } else if (5 < test.getTotalScore() && test.getTotalScore() < 10) {
         Type type = findByNo(2);
         out.println("EEEEEEE  SSSSS  TTTTTTT PPPPPP \r\n" +
+<<<<<<< HEAD
             "EE      SS        TTT   PP   PP \r\n" +
             "EEEEE    SSSSS    TTT   PPPPPP \r\n" +
             "EE           SS   TTT   PP \r\n" +
             "EEEEEEE  SSSSS    TTT   PP \r\n");
+=======
+                  "EE      SS        TTT   PP   PP \r\n" +
+                  "EEEEE    SSSSS    TTT   PPPPPP \r\n" +
+                  "EE           SS   TTT   PP \r\n" +
+                  "EEEEEEE  SSSSS    TTT   PP \r\n");
+>>>>>>> branch 'master' of https://github.com/cgkim449/mini-project-2.git
         out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
