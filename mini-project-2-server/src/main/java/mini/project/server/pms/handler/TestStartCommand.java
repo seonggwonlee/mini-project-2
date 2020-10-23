@@ -123,7 +123,7 @@ public class TestStartCommand implements Command {
             " III  NNN  NN   TTT   PP   PP \r\n" +
             " III  NN N NN   TTT   PPPPPP  \r\n" +
             " III  NN  NNN   TTT   PP      \r\n" +
-            "IIIII NN   NN   TTT   PP \r\n");
+            "IIIII NN   NN   TTT   PP \r");
         out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
@@ -137,7 +137,7 @@ public class TestStartCommand implements Command {
             "EE      SS        TTT   PP   PP \r\n" +
             "EEEEE    SSSSS    TTT   PPPPPP \r\n" +
             "EE           SS   TTT   PP \r\n" +
-            "EEEEEEE  SSSSS    TTT   PP \r\n");
+            "EEEEEEE  SSSSS    TTT   PP \r");
         out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
