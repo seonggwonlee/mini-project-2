@@ -27,7 +27,7 @@ public class TestResultCommand implements Command {
 
       while(true) {
         String name = Prompt.inputString(
-            "누구의 테스트 결과를 조회하시겠습니까? (이름 입력) ", out, in);
+            "누구의 테스트 결과를 조회하시겠습니까? (이름 입력): ", out, in);
         out.flush();
         if (login.getAdmin() != 0 && !name.equalsIgnoreCase(login.getName())) {
           out.println(" ");
