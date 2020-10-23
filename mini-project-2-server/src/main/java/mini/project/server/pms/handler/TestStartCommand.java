@@ -119,6 +119,12 @@ public class TestStartCommand implements Command {
 
       if (test.getTotalScore() == 5) {
         Type type = findByNo(1);
+        out.println("IIIII NN   NN TTTTTTT PPPPPP  \r\n" +
+                  " III  NNN  NN   TTT   PP   PP \r\n" +
+                  " III  NN N NN   TTT   PPPPPP  \r\n" +
+                  " III  NN  NNN   TTT   PP      \r\n" +
+                  "IIIII NN   NN   TTT   PP \r\n");
+        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
@@ -127,7 +133,13 @@ public class TestStartCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else if (5 < test.getTotalScore() && test.getTotalScore() < 10) {
         Type type = findByNo(2);
+        out.println("EEEEEEE  SSSSS  TTTTTTT PPPPPP \r\n" +
+                  "EE      SS        TTT   PP   PP \r\n" +
+                  "EEEEE    SSSSS    TTT   PPPPPP \r\n" +
+                  "EE           SS   TTT   PP \r\n" +
+                  "EEEEEEE  SSSSS    TTT   PP \r\n");
         out.printf("유형 : %s\n",type.getName());
+        out.println(" ");
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
@@ -135,6 +147,13 @@ public class TestStartCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else if (10 <= test.getTotalScore() && test.getTotalScore() < 15) {
         Type type = findByNo(3);
+        out.println("IIIII NN   NN TTTTTTT     JJJ \r\n" +
+                  " III  NNN  NN   TTT       JJJ \r\n" +
+                  " III  NN N NN   TTT       JJJ \r\n" +
+                  " III  NN  NNN   TTT   JJ  JJJ \r\n" +
+                  "IIIII NN   NN   TTT    JJJJJ  ");
+        out.println(" ");
+        out.printf("유형 : %s\n",type.getName());
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
@@ -143,6 +162,12 @@ public class TestStartCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else if (15 <= test.getTotalScore() && test.getTotalScore() < 20) {
         Type type = findByNo(4);
+        out.println("EEEEEEE  SSSSS  FFFFFFF     JJJ \r\n" +
+                  "EE      SS      FF          JJJ \r\n" +
+                  "EEEEE    SSSSS  FFFF        JJJ \r\n" +
+                  "EE           SS FF      JJ  JJJ \r\n" +
+                  "EEEEEEE  SSSSS  FF       JJJJJ");
+        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
@@ -151,6 +176,12 @@ public class TestStartCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else if (20 <= test.getTotalScore() && test.getTotalScore() <= 25) {
         Type type = findByNo(5);
+        out.println("IIIII  SSSSS  TTTTTTT PPPPPP  \r\n" +
+                  " III  SS        TTT   PP   PP \r\n" +
+                  " III   SSSSS    TTT   PPPPPP  \r\n" +
+                  " III       SS   TTT   PP      \r\n" +
+                  "IIIII  SSSSS    TTT   PP ");
+        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());

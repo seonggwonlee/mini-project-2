@@ -13,8 +13,8 @@ public class ClientApp {
 
   public static void main(String[] args) {
     System.out.println(" __       __  ___   \r\n" +
-        "|__)  __ |__)  |  | \r\n" +
-        "|__)     |__)  |  | \r\n");
+                       "|__)  __ |__)  |  | \r\n" +
+                       "|__)     |__)  |  | \r\n");
     System.out.println("/help를 입력하여 가이드페이지를 참조하세요.");
     if (args.length != 2) {
       System.out.println("프로그램 사용법:");
