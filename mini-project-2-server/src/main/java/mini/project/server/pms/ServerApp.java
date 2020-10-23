@@ -27,6 +27,7 @@ public class ServerApp {
 
   static Map<String,Object> context = new Hashtable<>();
 
+
   List<ApplicationContextListener> listeners = new ArrayList<>();
 
   public void addApplicationContextListener(ApplicationContextListener listener) {
