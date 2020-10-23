@@ -13,6 +13,7 @@ public class HelpCommand implements Command {
     out.println(" ");
     out.println("[가이드 페이지]");
     out.println("/login => 로그인 페이지 진입");
+    out.println("/logout => 로그아웃하기");
     out.println("/test/start => 테스트 시작하기");
     out.println("/test/result => 자신의 테스트 결과만 조회 가능");
     out.println(" ");
