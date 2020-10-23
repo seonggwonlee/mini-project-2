@@ -26,7 +26,9 @@ public class TestStartCommand implements Command {
       Test test = new Test();
       test.setName(login.getName());
 
-      out.println("[테스트 시작] 아무 키나 눌러주세요.");
+      out.println(" ");
+      out.println("[테스트 시작]");
+      out.print("아무 키나 눌러주세요.");
       Prompt.inputString(" ", out, in);
 
       int delay = 500;
@@ -103,8 +105,9 @@ public class TestStartCommand implements Command {
       //      Thread.currentThread().sleep(delay);
       //      out.print(".");
       //     out.println(" ");
-
-      out.println("[테스트 결과]");
+      out.println("[테스트 결과 조회]");
+      out.print("아무 키나 눌러주세요.");
+      Prompt.inputString(" ", out, in);
 
       test.setTotalScore(test.getFirstAnswer(), test.getSecondAnswer(), test.getThirdAnswer(),
           test.getFourthAnswer(), test.getFifthAnswer());
@@ -161,6 +164,8 @@ public class TestStartCommand implements Command {
       testList.add(test);
       out.println(" ");
       out.printf("%s님의 테스트 결과를 저장하였습니다.\n", login.getName());
+      out.println(" ");
+      out.printf("결과를 다시 보고 싶으시면 '/test/result'를 입력하세요.\n", login.getName());
       out.println(" ");
       out.flush();
 
