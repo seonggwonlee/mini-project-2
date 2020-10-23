@@ -20,7 +20,7 @@ public class LogoutCommand implements Command {
       out.println(" ");
 
       if (request.equalsIgnoreCase("y")) {
-        login.setAdmin(0);
+        login.setAdmin(3);
         login.setName(null);
         out.println("로그아웃 되었습니다.");
         out.println(" ");
