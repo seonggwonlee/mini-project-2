@@ -36,7 +36,7 @@ public class TypeUpdateCommand implements Command {
       }
 
       String name = Prompt.inputString(
-          String.format("이름(%s)? ", type.getName()), out, in);
+          String.format("유형(%s)? ", type.getName()), out, in);
       String introduction = Prompt.inputString(
           String.format("소개(%s)? ", type.getIntroduction()), out, in);
       String strength = Prompt.inputString(
