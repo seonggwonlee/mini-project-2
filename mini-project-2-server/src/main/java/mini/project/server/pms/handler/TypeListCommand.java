@@ -26,7 +26,9 @@ public class TypeListCommand implements Command {
       out.flush();
       return;
     }
+    out.println(" ");
     out.println("[타입 목록]");
+    out.println(" ");
 
     Iterator<Type> iterator = typeList.iterator();
 
@@ -36,6 +38,7 @@ public class TypeListCommand implements Command {
           type.getNo(),
           type.getName(),
           type.getIntroduction());
+      out.println(" ");
     }
   }
 

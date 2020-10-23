@@ -26,6 +26,7 @@ public class TypeDetailCommand implements Command {
       return;
     }
     try {
+      out.println(" ");
       out.println("[타입 상세보기]");
       int no = Prompt.inputInt("번호? ", out, in);
       Type type = findByNo(no);
@@ -35,12 +36,14 @@ public class TypeDetailCommand implements Command {
         return;
       }
 
+      out.println(" ");
       out.printf("유형: %s\n", type.getName());
       out.printf("소개: %s\n", type.getIntroduction());
       out.printf("장점: %s\n", type.getStrength());
       out.printf("약점: %s\n", type.getWeakness());
       out.printf("연애: %s\n", type.getRomance());
       out.printf("우정: %s\n", type.getFriendship());
+      out.println(" ");
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());

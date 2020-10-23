@@ -30,7 +30,9 @@ public class TestResultCommand implements Command {
             "누구의 테스트 결과를 조회하시겠습니까? (이름 입력) ", out, in);
         out.flush();
         if (login.getAdmin() != 0 && !name.equalsIgnoreCase(login.getName())) {
-          out.print("권한이 없습니다.");
+          out.println(" ");
+          out.println("권한이 없습니다.");
+          out.println(" ");
         } else {
           test = findByName(name);
           break;
@@ -41,7 +43,9 @@ public class TestResultCommand implements Command {
       //      test.totalScore = test.getFirstAnswer() + test.getSecondAnswer() + test.getThirdAnswer() +
       //          test.getFourthAnswer() + test.getFifthAnswer();
 
+      out.println(" ");
       out.printf("%s님의 검사결과입니다.\n", test.getName());
+      out.println(" ");
 
       if (test.getTotalScore() == 5) {
         Type type = findByNo(1);
@@ -85,6 +89,7 @@ public class TestResultCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else {
       }
+      out.println(" ");
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
