@@ -138,8 +138,8 @@ public class TestStartCommand implements Command {
                   "EEEEE    SSSSS    TTT   PPPPPP \r\n" +
                   "EE           SS   TTT   PP \r\n" +
                   "EEEEEEE  SSSSS    TTT   PP \r\n");
-        out.printf("유형 : %s\n",type.getName());
         out.println(" ");
+        out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
         out.printf("약점 : %s\n",type.getWeakness());
