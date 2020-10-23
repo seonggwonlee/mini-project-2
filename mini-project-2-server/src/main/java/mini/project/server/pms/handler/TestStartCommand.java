@@ -124,7 +124,6 @@ public class TestStartCommand implements Command {
             " III  NN N NN   TTT   PPPPPP  \r\n" +
             " III  NN  NNN   TTT   PP      \r\n" +
             "IIIII NN   NN   TTT   PP \r");
-        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
@@ -152,7 +151,6 @@ public class TestStartCommand implements Command {
             " III  NN N NN   TTT       JJJ \r\n" +
             " III  NN  NNN   TTT   JJ  JJJ \r\n" +
             "IIIII NN   NN   TTT    JJJJJ  ");
-        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
@@ -180,7 +178,6 @@ public class TestStartCommand implements Command {
             " III   SSSSS    TTT   PPPPPP  \r\n" +
             " III       SS   TTT   PP      \r\n" +
             "IIIII  SSSSS    TTT   PP ");
-        out.println(" ");
         out.printf("유형 : %s\n",type.getName());
         out.printf("설명 : %s\n",type.getIntroduction());
         out.printf("장점 : %s\n",type.getStrength());
