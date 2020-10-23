@@ -159,13 +159,13 @@ public class TestStartCommand implements Command {
         out.printf("우정 : %s\n",type.getFriendship());
       } else {
       }
-      testList.add(test);
       out.println(" ");
       out.printf("%s님의 테스트 결과를 저장하였습니다.\n", login.getName());
       out.println(" ");
       out.printf("결과를 다시 보고 싶으시면 '/test/result'를 입력하세요.\n", login.getName());
       out.println(" ");
       out.flush();
+      testList.add(test);
 
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
